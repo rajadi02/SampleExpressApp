@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-express-app-kube
+spec:
+  selector:
+    matchLabels:
+      app: sample-express-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: sample-express-app
+    spec:
+      containers:
+      - name: sample-express-app
+        image: sample-express-app:latest

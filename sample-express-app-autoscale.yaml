@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ annotations:
+ name: sample-express-app-kube
+ namespace: default
+spec:
+ maxReplicas: 5
+ minReplicas: 1
+ scaleTargetRef:
+  apiVersion: extensions/v1
+  kind: Deployment
+  name: sample-express-app-kube
+ targetCPUUtilizationPercentage: 1
